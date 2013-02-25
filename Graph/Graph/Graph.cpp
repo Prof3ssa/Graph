@@ -50,8 +50,6 @@ int Graph::distance(int i, int j){
 	int distance = 0, iPos = getedgePos(i), jPos = getedgePos(j);
 	if(iPos == -1 || jPos == -1)
 		throw NOT_CONNECTED;
-
-	
 }
 void Graph::print(){
 	cout<<"{";
