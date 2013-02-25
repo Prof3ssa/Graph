@@ -45,6 +45,14 @@ bool Graph::isConnected(int i, int j){
 	}
 	return false;
 }
+int Graph::distance(int i, int j){
+	// returns -1 if not found
+	int distance = 0, iPos = getedgePos(i), jPos = getedgePos(j);
+	if(iPos == -1 || jPos == -1)
+		throw NOT_CONNECTED;
+
+	
+}
 void Graph::print(){
 	cout<<"{";
 	for(int i=0;i<nSize;i++)
@@ -54,4 +62,11 @@ void Graph::print(){
 	for(int i=0;i<eSize;i++)
 		cout<<"["<<edges[i].start<<","<<edges[i].end<<"],";
 	cout<<"\b}\n";
+}
+int Graph::getedgePos(int e){
+	// returns -1 if not found
+	for(int i=0;i<Graph::eSize;i++)
+		if(edges[i].start == e || edges[i].end == e)
+			return i;
+	throw EDGE_NOT_FOUND;
 }
