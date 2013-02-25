@@ -46,7 +46,7 @@ bool Graph::isConnected(int i, int j){
 	return false;
 }
 int Graph::distance(int i, int j){
-	// returns -1 if not found
+	// returns NOT_CONNECTED exception when no edge found
 	int distance = 0, iPos = getedgePos(i), jPos = getedgePos(j);
 	if(iPos == -1 || jPos == -1)
 		throw NOT_CONNECTED;
