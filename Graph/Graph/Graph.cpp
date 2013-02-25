@@ -26,7 +26,17 @@ int Graph::addNode(){
 	nSize++;
 	return nSize-1;
 }
-
+int Graph::addEdge(int start, int end){
+	edge *newEdges = new edge[eSize+1], newEdge;
+	for(int i=0;i<eSize;i++)
+		newEdges[i] = edges[i];
+	newEdge.start = start;
+	newEdge.end = end;
+	newEdges[eSize++] = newEdge;
+	delete[] edges;
+	edges = newEdges;
+	return eSize-1;
+}
 void Graph::print(){
 	cout<<"{";
 	for(int i=0;i<nSize;i++)
@@ -34,6 +44,6 @@ void Graph::print(){
 	cout<<"\b}\n";
 	cout<<"{";
 	for(int i=0;i<eSize;i++)
-		cout<<"["<<edges->start<<","<<edges->end<<"],";
+		cout<<"["<<edges[i].start<<","<<edges[i].end<<"],";
 	cout<<"\b}\n";
 }
