@@ -62,7 +62,7 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
-
+Graph.vcxproj
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
 
