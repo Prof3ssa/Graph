@@ -15,6 +15,7 @@ int main(){
 	g.addEdge(0,3);
 	g.addEdge(3,2);
 	g.addEdge(1,5);
+	cout<<"2 and 3 are "<<(g.isConnected(2,3)?"connected":"not connected")<<endl;
 	g.print();
 	return 0;
 }

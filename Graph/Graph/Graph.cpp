@@ -37,6 +37,14 @@ int Graph::addEdge(int start, int end){
 	edges = newEdges;
 	return eSize-1;
 }
+bool Graph::isConnected(int i, int j){
+	//need to work on this algorithm to also search paths. For now it's only direct links
+	for(int i=0;i<eSize;i++){
+		if(edges[i].start == i || edges[i].end == i || edges[i].start == j || edges[i].end == j)
+			return true;
+	}
+	return false;
+}
 void Graph::print(){
 	cout<<"{";
 	for(int i=0;i<nSize;i++)
