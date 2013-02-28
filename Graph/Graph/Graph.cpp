@@ -40,16 +40,22 @@ int Graph::addEdge(int start, int end){
 bool Graph::isConnected(int i, int j){
 	//need to work on this algorithm to also search paths. For now it's only direct links
 	for(int i=0;i<eSize;i++){
-		if(edges[i].start == i || edges[i].end == i || edges[i].start == j || edges[i].end == j)
+		if((edges[i].start == i || edges[i].end == i) && (edges[i].start == j || edges[i].end == j))
 			return true;
 	}
 	return false;
 }
 int Graph::distance(int i, int j){
 	// returns NOT_CONNECTED exception when no edge found
-	int distance = 0, iPos = getedgePos(i), jPos = getedgePos(j);
-	if(iPos == -1 || jPos == -1)
-		throw NOT_CONNECTED;
+	int distance = 0, iPos, jPos;
+	try{
+		iPos = getedgePos(i);
+		jPos = getedgePos(j);
+	}catch(int i){
+		if(i==EDGE_NOT_FOUND)
+			throw i;
+	}
+	throw NOT_CONNECTED;
 }
 void Graph::print(){
 	cout<<"{";
