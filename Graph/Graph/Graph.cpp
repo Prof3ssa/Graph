@@ -37,6 +37,10 @@ int Graph::addEdge(int start, int end){
 	edges = newEdges;
 	return eSize-1;
 }
+
+//checks if i and j are connected
+//now, it only looks for direct connections. Need to work on a way 
+//to get all paths
 bool Graph::isConnected(int i, int j){
 	//need to work on this algorithm to also search paths. For now it's only direct links
 	for(int i=0;i<eSize;i++){
@@ -45,8 +49,11 @@ bool Graph::isConnected(int i, int j){
 	}
 	return false;
 }
+
+// returns the distance between i and j
+// dummy function for now
 int Graph::distance(int i, int j){
-	// returns NOT_CONNECTED exception when no edge found
+	// throws NOT_CONNECTED exception when no edge found
 	int distance = 0, iPos, jPos;
 	try{
 		iPos = getedgePos(i);
@@ -57,6 +64,8 @@ int Graph::distance(int i, int j){
 	}
 	throw NOT_CONNECTED;
 }
+
+// prints the edges and nodes arrays
 void Graph::print(){
 	cout<<"{";
 	for(int i=0;i<nSize;i++)
@@ -68,7 +77,8 @@ void Graph::print(){
 	cout<<"\b}\n";
 }
 int Graph::getedgePos(int e){
-	// returns -1 if not found
+	// this needs to return an array of edges instead of one. 
+	// throws EDGE_NOT_FOUND exception if the node is not present in the edges array
 	for(int i=0;i<Graph::eSize;i++)
 		if(edges[i].start == e || edges[i].end == e)
 			return i;
