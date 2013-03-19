@@ -1,3 +1,9 @@
+/*
+Contributers:
+	Michael
+	David
+	Yami
+*/
 #include <iostream>
 #include "Graph.h"
 
